@@ -26,7 +26,17 @@ class Tree:
 					self.right = Tree(data)
 				else:
 					self.right.insert(data)
-
+def check(g, n, s):
+	visited[n] = 1
+	if n == s:
+		return True
+	else:
+		for ii in g[n]:
+			if not visited[ii]:
+				t = check(g, ii, s)
+				if t:
+					return t
+		return False
 
 n=int(input("No. of Elements: "))
 print("Enter Elements")
